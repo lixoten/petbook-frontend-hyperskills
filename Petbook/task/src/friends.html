@@ -1,38 +1,18 @@
 <!doctype html>
-<!--stage 3-->
+<!--stage 4-->
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Petbook</title>
+    <title>Petbook - Friends</title>
+    <link rel="stylesheet" href="shared.css">
 </head>
 <style>
-    /*@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap')*/
-
-    * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-    }
-
-    body {
-        display: flex;
-        min-height: 100vh;
-        flex-direction: column;
-        margin: 0;
-    }
-
     main {
-        /*font-family: "Comic Sans MS", sans-serif;*/
-        font-family: Lato, sans-serif;
-
-        display: flex;
         flex-direction: column;
-        /*flex-wrap: wrap;*/
-        /*flex: 1;*/
-        /*flex-grow: 1;*/
-        /*gap: 30px;*/
         align-self: center;
         min-width: 80%;
+        gap: 10px;
+        padding: 10px;
     }
 
     #main > header {
@@ -46,27 +26,6 @@
         height: 10vh;
     }
 
-    p[id^="types-"] {
-        color: #565656;
-    }
-
-    p[id^="descriptions-"] {
-        color: black;
-    }
-
-    footer #footer-text {
-        color: white;
-    }
-
-    nav a {
-        text-decoration: none;
-
-    }
-
-    footer, section, header, aside {
-        padding: 1em;
-    }
-
     #filter-bar {
         display: flex;
         align-items: center;
@@ -76,7 +35,7 @@
         background-color: rgba(171, 219, 255, 0.25);
         border-radius: 24px;
         box-shadow: rgba(0, 0, 0, 0.25) 0 5px 5px 0;
-        margin: 20px 0;
+        margin: 0;
     }
     #filter-bar h1 {
         margin-right: auto;
@@ -106,7 +65,7 @@
         display: flex;
         width: 100%;
         justify-content: space-evenly;
-        margin: 20px 0;
+        margin: 10px 0;
     }
 
     .friends-card {
@@ -122,7 +81,7 @@
     .profile-image {
         border: 2px solid rgba(199, 199, 199, 1);
         border-radius: 150px;
-        margin: 20px;
+        margin: 16px;
     }
 
     .profile-name {
