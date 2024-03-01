@@ -42,3 +42,37 @@ nav a {
 footer, section, header, aside {
     padding: 1em;
 }
+
+
+/*Stage 5 crap*/
+#logo:hover {
+    transform: scale(2);
+}
+#logo {
+    transition: scale 2s ease-in-out 2s,
+    transform 2s ease;
+}
+
+#pet-profile:hover {
+    transform: rotateX(360deg);
+    transition: transform 0.5s;
+}
+#pet-profile  {
+    /*transition: transform 0.5s ease-in 0.5s;*/
+}
+#friends:hover {
+    transform: rotateY(360deg);
+    transition: transform 0.5s ease-in-out;
+}
+#friends {
+    transition: transform 0.5s ease-in-out;
+    /*transition: transform 0.5s ease-in;*/
+}
+#settings:hover {
+    transform: rotateZ(360deg);
+    transition: transform 0.5s ease-in-out;
+}
+#settings {
+    transition: transform 0.5s ease-in-out;
+    /*transition: transform 0.5s ease-in;*/
+}

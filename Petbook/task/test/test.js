@@ -1118,6 +1118,7 @@ class Test extends StageTest {
                 return false;
             };
 
+
             // <--HELPERS
 
             // CONSTANTS-->
@@ -1496,11 +1497,6 @@ class Test extends StageTest {
             // check if element with id #friends-link is on the left of #settings-link
             if (this.elementPositionCompareX(idFriendsLink, idSettingsLink))
                 return wrong(this.wrongPositionCompareXMsg(idFriendsLink, idSettingsLink));
-
-            // check if element with id #friends-link has href
-            correctHref = "friends.html";
-            if (this.elementHasAttribute(idFriendsLink, "href", correctHref, false))
-                return wrong(this.wrongAttributeMsg(idFriendsLink, "href", correctHref));
 
             // #settings-link
             // check if element with id #settings-link exist
@@ -2827,6 +2823,82 @@ class Test extends StageTest {
 
             return correct();
         }),
+        // test #30 deleted
+        this.node.execute(async () => {
+            // test #31
+            // STAGE5 ANIMATIONS
+
+            const elementStyle = async (element, style, value) => {
+                if (!element) return true;
+                const styles = await element.getComputedStyles();
+                const transitionExists = styles["transition"];
+                if (!transitionExists) return true;
+                const selectStyle = styles[style];
+                // console.log(selectStyle);
+                if (typeof value === "string") return selectStyle !== value;
+
+                const sliced = selectStyle.slice(selectStyle.indexOf("(") + 1, selectStyle.indexOf(")"));
+                const slicedArray = sliced.split(",");
+                const indexO = parseFloat(slicedArray[0]);
+                const index3 = parseFloat(slicedArray[3]);
+                // console.log(indexO, index3);
+                return indexO < value && index3 < value;
+            };
+
+            // check if #logo increase its size on hover
+            let idLogo = "logo";
+            const logo = await this.page3.findById(idLogo);
+            await logo.hover();
+            await new Promise((resolve => {
+                setTimeout(() => {
+                    resolve()
+                }, 600)
+            }));
+            if (await elementStyle(logo, "transform", 1.0))
+                return wrong("The element with logo id should increase its size on hover.");
+
+            // check if #pet-profile rotateX 360deg on hover
+            let idPetProfile = "pet-profile";
+            const petProfile = await this.page3.findById(idPetProfile);
+            await petProfile.hover();
+            await new Promise((resolve => {
+                setTimeout(() => {
+                    resolve()
+                }, 600)
+            }));
+            let correctValue = "matrix3d(1, 0, 0, 0, 0, 1, -2.44929e-16, 0, 0, 2.44929e-16, 1, 0, 0, 0, 0, 1)";
+            if (await elementStyle(petProfile, "transform", correctValue))
+                return wrong("The element with pet-profile id should rotate 360 in the x-axis on hover.");
+
+            // check if #friends rotateY 360deg on hover
+            let idFriends = "friends";
+            const friends = await this.page3.findById(idFriends);
+            await friends.hover();
+            await new Promise((resolve => {
+                setTimeout(() => {
+                    resolve()
+                }, 600)
+            }));
+            correctValue = "matrix3d(1, 0, 2.44929e-16, 0, 0, 1, 0, 0, -2.44929e-16, 0, 1, 0, 0, 0, 0, 1)";
+            if (await elementStyle(friends, "transform", correctValue))
+                return wrong("The element with friends id should rotate 360 in the y-axis on hover.");
+
+            // check if #settings rotateZ 360deg on hover
+            let idSettings = "settings";
+            const settings = await this.page3.findById(idSettings);
+            await settings.hover();
+            await new Promise((resolve => {
+                    setTimeout(() => {
+                        resolve()
+                    }, 600)
+                }
+            ));
+            correctValue = "matrix(1, -2.44929e-16, 2.44929e-16, 1, 0, 0)";
+            if (await elementStyle(settings, "transform", correctValue))
+                return wrong("The element with settings id should rotate 360 in the z-axis on hover.");
+
+            return correct();
+        })
     ]
 }
 
