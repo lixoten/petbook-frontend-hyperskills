@@ -1,5 +1,5 @@
 <!doctype html>
-<!--Stage 5-->
+<!--Stage 6-->
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,16 +22,30 @@
 
         #personal-data,
         #settings-section {
+            display: flex;
+            flex-direction: column;
             background-color: rgba(171, 219, 255, 0.5);
             border-radius: 24px;
             border: 1px solid #C7C7C7;
             box-shadow: rgba(0, 0, 0, 0.25) 0 5px 5px 0;
+            /*margin-left: 20px;*/
+        }
+        #personal-data {
+            /*flex: 1 1 50%;*/
+            flex-grow: 0.2;
+            margin-left: 3rem;
+        }
+        #settings-section {
+            /*flex: 1 1 50%;*/
+            flex-grow: 1;
+            margin-right: 3rem;
         }
 
         form {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            /*background-color: yellow;*/
         }
 
         label {
@@ -72,6 +86,36 @@
             margin-top: 24px;
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
         }
+
+
+        @media screen and (max-width: 768px) {
+            /* CSS code */
+            /*body {*/
+            /*    !*padding: 0px;*!*/
+            /*    background-color: lime;*/
+            /*}*/
+            /*section {*/
+            /*    background-color: red;*/
+            /*    !*    flex: 1 1 50vh;*!*/
+            /*}*/
+
+            #personal-data {
+                /*flex: 1 1 50%;*/
+                /*flex-grow: 1;*/
+                flex-basis: 100%;
+                margin-left: 0;
+            }
+
+            #settings-section {
+                /*flex: 1 1 50%;*/
+                /*flex-grow: 1;*/
+                /*margin-right: 5rem;*/
+                flex-basis: 100%;
+                margin-right: 0;
+            }
+
+        }
+
 
     </style>
 </head>

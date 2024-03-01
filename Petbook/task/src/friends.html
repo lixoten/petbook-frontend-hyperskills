@@ -28,6 +28,7 @@
 
     #filter-bar {
         display: flex;
+        /*flex-wrap: wrap;*/
         align-items: center;
         flex-grow: 1;
         flex-basis: 100%;
@@ -47,12 +48,13 @@
         box-shadow: rgba(0, 0, 0, 0.25) 0 5px 5px 0;
         color: rgba(58, 172, 255, 1);
         padding: 8px;
+        margin-left: 1rem;
     }
 
     #filter-text {
         font-size: 12px;
         font-weight: bold;
-        padding-right: 20px;
+        /*padding-right: 20px;*/
     }
 
     #friends-cards {
@@ -63,7 +65,8 @@
 
     .card-row {
         display: flex;
-        width: 100%;
+        flex-wrap: wrap;
+        /*width: 100%;*/
         justify-content: space-evenly;
         margin: 10px 0;
     }
@@ -74,7 +77,8 @@
         border-radius: 24px;
         background-color: rgba(255, 247, 171, 1);
         box-shadow: rgba(0, 0, 0, 0.25) 0 5px 5px 0;
-        min-width: 250px;
+        width: 250px;
+        padding: 1rem 0;
     }
 
     /* Required by specs */
@@ -86,6 +90,7 @@
 
     .profile-name {
         font-size: 24px;
+        /*margin-right: 50px;*/
     }
 
     .profile-breed, .profile-country {
@@ -101,6 +106,13 @@
     .name-flag-area div{
         display: flex;
         flex-direction: column;
+        /*border: #3AACFF 2px solid;*/
+        margin-right: 1rem;
+        /*flex-basis: 100%;*/
+    }
+
+    .profile-flag {
+        width: 2rem;
     }
 
     #friend-card-micky,
@@ -131,6 +143,58 @@
         background-color: #ABDBFF;
     }
 
+
+    @media screen and (max-width: 768px) {
+        .profile-image {
+            width: 40%;
+            margin: auto;
+        }
+
+        .card-row {
+            gap: 1em;
+        }
+
+        /*.name-flag-area {*/
+        /*    justify-content: around;*/
+        /*}*/
+
+        .friends-card {
+            flex-direction: row;
+            align-items: center;
+            width: 80%;
+        }
+
+        #filter-text {
+            /*font-size: .7em;*/
+
+        }
+
+
+    }
+
+
+    @media screen and (max-width: 414px) {
+
+        #filter-bar div {
+            display: flex;
+            flex-direction: column; justify-content: flex-start;
+            gap: 1rem;
+        }
+        #filter-bar select {
+            margin: 0;
+        }
+
+        #filter-bar h1 {
+            font-size: 1em;
+        }
+
+        #filter-text {
+            font-size: .7em;
+
+        }
+
+    }
+
 </style>
 <body>
 
@@ -150,16 +214,18 @@
 <main>
     <aside id="filter-bar">
         <h1 id="friends-header">Find new friends!</h1>
-        <span id="filter-text">Filter</span>
-        <select id="filter-select-animal">
-            <option value="Animal">Animal</option>
-        </select>
-        <select id="filter-select-breed">
-            <option value="Breed">Breed</option>
-        </select>
-        <select id="filter-select-country">
-            <option value="Country">Country</option>
-        </select>
+        <div>
+            <span id="filter-text">Filter</span>
+            <select id="filter-select-animal">
+                <option value="Animal">Animal</option>
+            </select>
+            <select id="filter-select-breed">
+                <option value="Breed">Breed</option>
+            </select>
+            <select id="filter-select-country">
+                <option value="Country">Country</option>
+            </select>
+        </div>
     </aside>
 
     <section id="friends-cards">

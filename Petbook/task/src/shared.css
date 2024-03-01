@@ -17,8 +17,8 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    padding: 30px;
+    gap: 2rem;
+    padding: 2rem;
     font-size: 24px;
 }
 #main > header {
@@ -40,7 +40,7 @@ nav a {
 
 }
 footer, section, header, aside {
-    padding: 1em;
+    padding: 1rem;
 }
 
 
@@ -75,4 +75,35 @@ footer, section, header, aside {
 #settings {
     transition: transform 0.5s ease-in-out;
     /*transition: transform 0.5s ease-in;*/
+}
+
+@media screen and (max-width: 768px) {
+    /* CSS code */
+    body {
+        /*padding: 0px;*/
+        /*background-color: lime;*/
+    }
+
+    section {
+        /*background-color: red;*/
+        /*    flex: 1 1 50vh;*/
+    }
+
+
+
+}
+
+
+@media screen and (max-width: 414px) {
+    /* CSS code */
+    body {
+        /*padding: 0px;*/
+        /*background-color: deeppink;*/
+    }
+
+    #description {
+        /*background-color: yellow;*/
+        font-size: 20px;
+        /*flex: 1 1 50vh;*/
+    }
 }
